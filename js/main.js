@@ -1,6 +1,3 @@
-// Initialize EmailJS
-emailjs.init("user_lUYOT0ZbunzqDkD3KIehL");
-
 // Mobile Menu Toggle
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
@@ -41,7 +38,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission
+// Form submission via Formspree
 const contactForm = document.getElementById('contact-form');
 const formSuccess = document.getElementById('form-success');
 const formError = document.getElementById('form-error');
@@ -50,59 +47,51 @@ if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // Get form button
         const submitButton = contactForm.querySelector('button[type="submit"]');
         const originalButtonText = submitButton.textContent;
 
-        // Disable button and show loading state
         submitButton.disabled = true;
         submitButton.textContent = 'Sending...';
 
-        // Send email using EmailJS
-        emailjs.sendForm('service_i6dnh9n', 'template_ya6gzou', contactForm)
-            .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
+        const formData = new FormData(contactForm);
 
-                // Reset form first
+        fetch(contactForm.action, {
+            method: contactForm.method,
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(function(response) {
+            if (response.ok) {
                 contactForm.reset();
-
-                // Hide form and show success message
                 contactForm.style.display = 'none';
                 formSuccess.style.display = 'block';
                 formError.style.display = 'none';
-
-                // Scroll to success message
                 formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-                // Reset button state
                 submitButton.disabled = false;
                 submitButton.textContent = originalButtonText;
 
-                // Show form again after 5 seconds
                 setTimeout(() => {
                     contactForm.style.display = 'block';
                     formSuccess.style.display = 'none';
                 }, 5000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        })
+        .catch(function(error) {
+            console.log('FAILED...', error);
+            formError.style.display = 'block';
+            formSuccess.style.display = 'none';
+            formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            }, function(error) {
-                console.log('FAILED...', error);
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
 
-                // Show error message
-                formError.style.display = 'block';
-                formSuccess.style.display = 'none';
-
-                // Scroll to error message
-                formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                // Reset button
-                submitButton.disabled = false;
-                submitButton.textContent = originalButtonText;
-
-                // Hide error message after 5 seconds
-                setTimeout(() => {
-                    formError.style.display = 'none';
-                }, 5000);
-            });
+            setTimeout(() => {
+                formError.style.display = 'none';
+            }, 5000);
+        });
     });
 }
 
