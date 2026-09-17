@@ -3,262 +3,459 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kuiper Code - Expert Cloud Infrastructure Management. Specializing in AWS, Kubernetes, Azure, Terraform, and Ansible automation for businesses.">
-    <meta name="keywords" content="cloud infrastructure, AWS, kubernetes, k8s, Azure, Terraform, Ansible, cloud automation, infrastructure management, DevOps, cloud consulting">
-    <title>Kuiper Code - Cloud Infrastructure Management</title>
+    <meta name="description" content="Kuiper Code partners with cloud-native startups and technology companies to deliver fractional CTO leadership, advanced architecture, and engineering maturity.">
+    <meta name="keywords" content="fractional CTO, technology leadership, cloud architecture, cloud-native, technical strategy, engineering maturity, technical due diligence, platform engineering, Kubernetes, AWS, Azure, Terraform">
+    <meta name="author" content="Kuiper Code, LLC">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kuiper Code — Technology Leadership for Cloud-Native Teams">
+    <meta property="og:description" content="Fractional CTO leadership, advanced architecture, and cloud-native builds for ambitious startups and technology companies.">
+    <meta property="og:type" content="website">
+
+    <title>Kuiper Code — Technology Leadership for Cloud-Native Teams</title>
     <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <img src="img/Badge.svg" alt="Kuiper Code Logo">
+            <a href="#home" class="logo" aria-label="Kuiper Code home">
+                <img src="img/Badge.svg" alt="Kuiper Code">
                 <span>Kuiper Code</span>
-            </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#engagements">Engagements</a></li>
+                <li><a href="#approach">Approach</a></li>
+                <li><a href="#capabilities">Capabilities</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#contact" class="btn-primary">Contact Us</a></li>
+                <li><a href="#contact" class="btn-primary nav-cta">Book a consultation</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Expert Cloud Infrastructure Management</h1>
-            <p class="hero-subtitle">Empowering your business with scalable, reliable cloud solutions</p>
-            <p class="hero-description">Specializing in AWS, Kubernetes, Azure, and Infrastructure as Code</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn-primary btn-large">Get Started</a>
-                <a href="#services" class="btn-secondary btn-large">Our Services</a>
+    <header id="home" class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container hero-inner">
+            <p class="eyebrow">Fractional CTO · Architecture · Cloud-Native Engineering</p>
+            <h1 class="hero-title">
+                Senior technology leadership for
+                <span class="text-gradient">ambitious cloud-native teams</span>
+            </h1>
+            <p class="hero-lead">
+                Kuiper Code partners with high-growth startups and technology companies to
+                raise engineering maturity, design resilient architecture, and ship advanced
+                cloud-native systems &mdash; without the cost of a full-time executive.
+            </p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary btn-large">Book a consultation</a>
+                <a href="#engagements" class="btn-ghost btn-large">Explore engagements</a>
             </div>
-        </div>
-        <div class="hero-tech-stack">
-            <div class="tech-category">
-                <h4 class="tech-category-title">Clouds</h4>
-                <div class="tech-badges">
-                    <div class="tech-badge">AWS</div>
-                    <div class="tech-badge">Azure</div>
-                </div>
-            </div>
-            <div class="tech-category">
-                <h4 class="tech-category-title">Automation Platforms</h4>
-                <div class="tech-badges">
-                    <div class="tech-badge">Terraform</div>
-                    <div class="tech-badge">Ansible</div>
-                </div>
-            </div>
-            <div class="tech-category">
-                <h4 class="tech-category-title">Infrastructure Orchestration</h4>
-                <div class="tech-badges">
-                    <div class="tech-badge">Kubernetes</div>
-                    <div class="tech-badge">OpenShift</div>
-                    <div class="tech-badge">EKS</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Comprehensive cloud infrastructure solutions tailored to your business needs</p>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">☁️</div>
-                    <h3>Cloud Infrastructure</h3>
-                    <p>Expert management of your AWS, Azure, and multi-cloud environments. We design, deploy, and maintain scalable infrastructure that grows with your business.</p>
-                    <ul class="service-features">
-                        <li>AWS & Azure Architecture</li>
-                        <li>Multi-cloud Strategy</li>
-                        <li>Cost Optimization</li>
-                        <li>Security Best Practices</li>
-                    </ul>
+            <div class="trust-bar">
+                <div class="trust-item">
+                    <span class="trust-value">15+ yrs</span>
+                    <span class="trust-label">Building &amp; scaling platforms</span>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">⚙️</div>
-                    <h3>Kubernetes Management</h3>
-                    <p>Container orchestration expertise for modern applications. We handle cluster setup, management, and optimization so you can focus on your applications.</p>
-                    <ul class="service-features">
-                        <li>K8s Cluster Setup</li>
-                        <li>Container Orchestration</li>
-                        <li>Helm Chart Management</li>
-                        <li>Performance Tuning</li>
-                    </ul>
+                <div class="trust-divider" aria-hidden="true"></div>
+                <div class="trust-item">
+                    <span class="trust-value">Senior-only</span>
+                    <span class="trust-label">No handoffs, no juniors</span>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🔧</div>
-                    <h3>Infrastructure as Code</h3>
-                    <p>Automate your infrastructure with Terraform and Ansible. Version-controlled, repeatable, and reliable infrastructure deployments every time.</p>
-                    <ul class="service-features">
-                        <li>Terraform Automation</li>
-                        <li>Ansible Configuration</li>
-                        <li>CI/CD Integration</li>
-                        <li>Infrastructure Testing</li>
-                    </ul>
+                <div class="trust-divider" aria-hidden="true"></div>
+                <div class="trust-item">
+                    <span class="trust-value">Cloud-native</span>
+                    <span class="trust-label">By default, not by retrofit</span>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🛡️</div>
-                    <h3>DevOps & Monitoring</h3>
-                    <p>Streamline your development and operations with modern DevOps practices. Continuous integration, deployment, and comprehensive monitoring.</p>
-                    <ul class="service-features">
-                        <li>CI/CD Pipelines</li>
-                        <li>Infrastructure Monitoring</li>
-                        <li>Log Aggregation</li>
-                        <li>Incident Response</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🚀</div>
-                    <h3>Cloud Migration Services</h3>
-                    <p>Seamlessly migrate your workloads to the cloud with our expert migration services. Whether you're moving to a hybrid environment or going full cloud, we ensure a smooth transition with minimal disruption.</p>
-                    <ul class="service-features">
-                        <li>Hybrid Cloud Migration</li>
-                        <li>Full Cloud Deployment</li>
-                        <li>Workload Assessment</li>
-                        <li>Zero-Downtime Migration</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">💾</div>
-                    <h3>Backup & Disaster Recovery</h3>
-                    <p>Protect your critical data and ensure business continuity with comprehensive backup solutions and disaster recovery planning. We implement robust strategies to keep your data safe and recoverable.</p>
-                    <ul class="service-features">
-                        <li>Automated Backup Systems</li>
-                        <li>Disaster Recovery Planning</li>
-                        <li>Point-in-Time Recovery</li>
-                        <li>Business Continuity</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🖥️</div>
-                    <h3>VMware & On-Premises Management</h3>
-                    <p>Expert management of your on-premises VMware deployments. We optimize your virtualized infrastructure, ensure high availability, and provide ongoing support for your data center operations.</p>
-                    <ul class="service-features">
-                        <li>VMware vSphere Management</li>
-                        <li>Virtual Machine Optimization</li>
-                        <li>High Availability Setup</li>
-                        <li>On-Prem to Cloud Bridge</li>
-                    </ul>
+                <div class="trust-divider" aria-hidden="true"></div>
+                <div class="trust-item">
+                    <span class="trust-value">Founder-led</span>
+                    <span class="trust-label">A true engineering partner</span>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Kuiper Code</h2>
-            <div class="about-content">
+    <main>
+        <!-- Intro / Who we partner with -->
+        <section class="intro">
+            <div class="container intro-inner">
+                <p class="intro-statement">
+                    Great products are built on sound architecture and a team that knows where
+                    it&rsquo;s going. We bring the <strong>executive judgment</strong>,
+                    <strong>architectural depth</strong>, and <strong>hands-on engineering</strong>
+                    that turn promising technology into a durable competitive advantage.
+                </p>
+                <div class="audience">
+                    <span class="audience-chip">Seed &ndash; Series C startups</span>
+                    <span class="audience-chip">Scale-ups</span>
+                    <span class="audience-chip">Product &amp; platform teams</span>
+                    <span class="audience-chip">Investor due diligence</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Engagements Section -->
+        <section id="engagements" class="engagements">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">Engagements</p>
+                    <h2 class="section-title">Leadership and engineering, tailored to your stage</h2>
+                    <p class="section-subtitle">
+                        Flexible engagements designed to deliver outcomes &mdash; from
+                        board-level strategy to production-grade systems.
+                    </p>
+                </div>
+
+                <div class="engagement-grid">
+                    <article class="engagement-card">
+                        <div class="engagement-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2 4 6v6c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V6l-8-4Z"/>
+                                <path d="m9 12 2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <h3>Fractional CTO</h3>
+                        <p>Executive technology leadership on a fractional basis &mdash; aligning engineering with the business and earning the confidence of your board.</p>
+                        <ul class="engagement-features">
+                            <li>Technology strategy &amp; roadmap</li>
+                            <li>Hiring, org design &amp; mentoring</li>
+                            <li>Vendor &amp; build-vs-buy decisions</li>
+                            <li>Board &amp; investor communication</li>
+                        </ul>
+                    </article>
+
+                    <article class="engagement-card">
+                        <div class="engagement-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="6" cy="6" r="2.5"/>
+                                <circle cx="18" cy="6" r="2.5"/>
+                                <circle cx="12" cy="18" r="2.5"/>
+                                <path d="M8.2 7.4 11 15m5-7.6L13 15M8.5 6h7"/>
+                            </svg>
+                        </div>
+                        <h3>Architecture &amp; Technical Strategy</h3>
+                        <p>Resilient, scalable system design with a pragmatic path from where you are today to the target state you need.</p>
+                        <ul class="engagement-features">
+                            <li>Architecture reviews &amp; target-state design</li>
+                            <li>Multi-cloud &amp; cloud-native strategy</li>
+                            <li>Reliability, security &amp; cost modeling</li>
+                            <li>Scalability &amp; performance planning</li>
+                        </ul>
+                    </article>
+
+                    <article class="engagement-card">
+                        <div class="engagement-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2.5 21 7v10l-9 4.5L3 17V7l9-4.5Z"/>
+                                <path d="M3.2 7 12 11.5 20.8 7M12 11.5V21.5"/>
+                            </svg>
+                        </div>
+                        <h3>Cloud-Native Engineering &amp; Builds</h3>
+                        <p>Advanced builds, delivered. We design and ship production-grade platforms alongside your team, not in a silo.</p>
+                        <ul class="engagement-features">
+                            <li>Greenfield &amp; platform builds</li>
+                            <li>Kubernetes, OpenShift &amp; EKS</li>
+                            <li>Infrastructure as Code &amp; CI/CD</li>
+                            <li>Cloud migrations &amp; modernization</li>
+                        </ul>
+                    </article>
+
+                    <article class="engagement-card">
+                        <div class="engagement-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 12a9 9 0 0 1 18 0"/>
+                                <path d="m12 12 4-2.5"/>
+                                <circle cx="12" cy="12" r="1.3"/>
+                                <path d="M3 12h2m14 0h2M12 21v-2"/>
+                            </svg>
+                        </div>
+                        <h3>Technology Maturity &amp; Due Diligence</h3>
+                        <p>Know exactly where you stand. Clear-eyed assessments that surface risk and chart the path to operational excellence.</p>
+                        <ul class="engagement-features">
+                            <li>Engineering maturity assessments</li>
+                            <li>Technical due diligence for investors</li>
+                            <li>Security &amp; reliability posture</li>
+                            <li>Prioritized, actionable roadmaps</li>
+                        </ul>
+                    </article>
+
+                    <article class="engagement-card">
+                        <div class="engagement-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 8a5 5 0 0 1 5-5 4 4 0 0 1 .5 7.97A5 5 0 1 1 7 8Z" transform="rotate(90 12 12)"/>
+                                <path d="M4 12a8 8 0 0 0 8 8m8-8a8 8 0 0 0-8-8"/>
+                                <circle cx="4" cy="12" r="1.3"/>
+                                <circle cx="20" cy="12" r="1.3"/>
+                            </svg>
+                        </div>
+                        <h3>Platform &amp; DevOps Enablement</h3>
+                        <p>Golden paths for your engineers. We build the internal platforms and automation that make shipping safe, fast, and repeatable.</p>
+                        <ul class="engagement-features">
+                            <li>Internal developer platforms</li>
+                            <li>Automation with Terraform &amp; Ansible</li>
+                            <li>Observability &amp; incident response</li>
+                            <li>Backup, DR &amp; business continuity</li>
+                        </ul>
+                    </article>
+
+                    <article class="engagement-card">
+                        <div class="engagement-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="8" r="3"/>
+                                <path d="M3.5 20a5.5 5.5 0 0 1 11 0"/>
+                                <path d="M16 6.5a3 3 0 0 1 0 5.8M21 19a5 5 0 0 0-3.5-4.3"/>
+                            </svg>
+                        </div>
+                        <h3>Team &amp; Delivery Uplift</h3>
+                        <p>Level up how you ship. We embed alongside your engineers to raise the bar on practices, quality, and pace.</p>
+                        <ul class="engagement-features">
+                            <li>Mentoring &amp; technical coaching</li>
+                            <li>Delivery process &amp; standards</li>
+                            <li>Code &amp; architecture review culture</li>
+                            <li>Knowledge transfer that sticks</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Approach Section -->
+        <section id="approach" class="approach">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">Our Approach</p>
+                    <h2 class="section-title">An engagement model built to compound</h2>
+                    <p class="section-subtitle">
+                        We focus on outcomes you keep. Every engagement leaves your team
+                        stronger than we found it.
+                    </p>
+                </div>
+
+                <div class="approach-grid">
+                    <div class="step">
+                        <span class="step-number">01</span>
+                        <h3>Assess</h3>
+                        <p>We start by deeply understanding your business goals, architecture, and team &mdash; no assumptions, no generic playbooks.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">02</span>
+                        <h3>Architect</h3>
+                        <p>We define a clear target state and a pragmatic, sequenced path to reach it &mdash; balancing speed, cost, and risk.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">03</span>
+                        <h3>Build</h3>
+                        <p>We deliver advanced, cloud-native systems hands-on, working alongside your engineers to ship real outcomes.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">04</span>
+                        <h3>Mature</h3>
+                        <p>We embed the practices, automation, and standards that let the gains compound long after the engagement ends.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capabilities Section -->
+        <section id="capabilities" class="capabilities">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">Capabilities</p>
+                    <h2 class="section-title">Depth across the modern cloud stack</h2>
+                    <p class="section-subtitle">
+                        Battle-tested expertise across the platforms and tools that power
+                        cloud-native businesses.
+                    </p>
+                </div>
+
+                <div class="capability-stack">
+                    <div class="tech-category">
+                        <h4 class="tech-category-title">Clouds</h4>
+                        <div class="tech-badges">
+                            <span class="tech-badge">AWS</span>
+                            <span class="tech-badge">Azure</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h4 class="tech-category-title">Infrastructure Orchestration</h4>
+                        <div class="tech-badges">
+                            <span class="tech-badge">Kubernetes</span>
+                            <span class="tech-badge">OpenShift</span>
+                            <span class="tech-badge">EKS</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h4 class="tech-category-title">Automation Platforms</h4>
+                        <div class="tech-badges">
+                            <span class="tech-badge">Terraform</span>
+                            <span class="tech-badge">Ansible</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h4 class="tech-category-title">Delivery &amp; Operations</h4>
+                        <div class="tech-badges">
+                            <span class="tech-badge">CI/CD</span>
+                            <span class="tech-badge">Observability</span>
+                            <span class="tech-badge">VMware</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container about-grid">
                 <div class="about-text">
-                    <p class="lead">We are cloud infrastructure specialists dedicated to helping businesses leverage the power of modern cloud technology.</p>
-                    <p>Kuiper Code, LLC provides expert IT and cloud infrastructure management services with a focus on reliability, scalability, and automation. Our expertise spans across major cloud platforms including AWS and Azure, container orchestration with Kubernetes, and infrastructure automation using Terraform and Ansible.</p>
-                    <p>We understand that managing cloud infrastructure can be complex and time-consuming. That's why we partner with businesses to handle their cloud environments, allowing them to focus on what they do best - growing their business.</p>
-                    <p>Our approach combines deep technical expertise with a commitment to best practices in security, cost optimization, and operational excellence. Whether you're migrating to the cloud, optimizing existing infrastructure, or building new cloud-native applications, we're here to help.</p>
+                    <p class="eyebrow">About Kuiper Code</p>
+                    <h2 class="section-title about-title">A senior partner, invested in your outcomes</h2>
+                    <p class="lead">
+                        Kuiper Code is a founder-led technology practice built for companies
+                        that take engineering seriously.
+                    </p>
+                    <p>
+                        After more than a decade designing, building, and scaling cloud
+                        platforms, we founded Kuiper Code to give startups and technology
+                        teams access to senior leadership and deep architectural expertise &mdash;
+                        on terms that fit their stage.
+                    </p>
+                    <p>
+                        We don&rsquo;t parachute in with slide decks and leave. We work as a true
+                        partner: setting technical direction, designing resilient systems, and
+                        building advanced cloud-native solutions alongside your team. Our goal
+                        is always the same &mdash; to leave you with technology, practices, and
+                        people that are measurably stronger.
+                    </p>
                 </div>
-                <div class="about-highlights">
-                    <div class="highlight-card">
-                        <h3>10+</h3>
-                        <p>Years of Experience</p>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <span class="stat-value">15+</span>
+                        <span class="stat-label">Years in cloud &amp; platform engineering</span>
                     </div>
-                    <div class="highlight-card">
-                        <h3>100%</h3>
-                        <p>Client Satisfaction</p>
+                    <div class="stat-card">
+                        <span class="stat-value">CTO-level</span>
+                        <span class="stat-label">Strategy to hands-on delivery</span>
                     </div>
-                    <div class="highlight-card">
-                        <h3>24/7</h3>
-                        <p>Infrastructure Support</p>
+                    <div class="stat-card">
+                        <span class="stat-value">End-to-end</span>
+                        <span class="stat-label">Assess, architect, build, mature</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">Ready to optimize your cloud infrastructure? Let's talk.</p>
-
-            <form id="contact-form" class="contact-form" action="https://formspree.io/f/mojnwlzj" method="post">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="first_name">First Name *</label>
-                        <input type="text" id="first_name" name="first_name" required autocomplete="given-name">
-                    </div>
-                    <div class="form-group">
-                        <label for="last_name">Last Name *</label>
-                        <input type="text" id="last_name" name="last_name" required autocomplete="family-name">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required autocomplete="email">
-                </div>
-
-                <div class="form-group">
-                    <label for="phone_number">Phone Number</label>
-                    <input type="tel" id="phone_number" name="phone_number" placeholder="555-555-5555" autocomplete="tel">
-                </div>
-
-                <div class="form-group">
-                    <label for="company">Company</label>
-                    <input type="text" id="company" name="company" autocomplete="organization">
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Message *</label>
-                    <textarea id="message" name="message" rows="6" required placeholder="Tell us about your infrastructure needs..."></textarea>
-                </div>
-
-                <p class="privacy-notice">Your information will remain confidential and will only be used to contact you regarding your inquiry.</p>
-
-                <button type="submit" class="btn-primary btn-large">Send Message</button>
-            </form>
-
-            <div id="form-success" class="form-message success" style="display: none;">
-                <h3>Thank you for reaching out!</h3>
-                <p>We've received your message and will get back to you shortly.</p>
+        <!-- CTA Band -->
+        <section class="cta-band">
+            <div class="container cta-inner">
+                <h2>Ready to raise your engineering bar?</h2>
+                <p>Let&rsquo;s talk about where you&rsquo;re headed and how we can help you get there faster.</p>
+                <a href="#contact" class="btn-primary btn-large">Book a consultation</a>
             </div>
+        </section>
 
-            <div id="form-error" class="form-message error" style="display: none;">
-                <h3>Oops! Something went wrong.</h3>
-                <p>Please try again or contact us directly at info@kuipercode.com</p>
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container contact-grid">
+                <div class="contact-intro">
+                    <p class="eyebrow">Get in touch</p>
+                    <h2 class="section-title">Let&rsquo;s start a conversation</h2>
+                    <p>
+                        Tell us a little about your company and where you&rsquo;re headed. We&rsquo;ll
+                        get back to you to schedule an introductory call.
+                    </p>
+                    <ul class="contact-points">
+                        <li>Fractional CTO &amp; technology leadership</li>
+                        <li>Architecture &amp; technical strategy</li>
+                        <li>Cloud-native engineering &amp; builds</li>
+                        <li>Maturity &amp; technical due diligence</li>
+                    </ul>
+                </div>
+
+                <div class="contact-form-wrap">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first_name">First name *</label>
+                                <input type="text" id="first_name" name="first_name" required autocomplete="given-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Last name *</label>
+                                <input type="text" id="last_name" name="last_name" required autocomplete="family-name">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Work email *</label>
+                            <input type="email" id="email" name="email" required autocomplete="email">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="company">Company</label>
+                                <input type="text" id="company" name="company" autocomplete="organization">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone_number">Phone</label>
+                                <input type="tel" id="phone_number" name="phone_number" placeholder="555-555-5555" autocomplete="tel">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">How can we help? *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Tell us about your team, your stack, and what you're trying to achieve..."></textarea>
+                        </div>
+
+                        <p class="privacy-notice">Your information is kept confidential and used only to respond to your inquiry.</p>
+
+                        <button type="submit" class="btn-primary btn-large btn-block">Send message</button>
+                    </form>
+
+                    <div id="form-success" class="form-message success" style="display: none;">
+                        <h3>Thank you for reaching out.</h3>
+                        <p>We&rsquo;ve received your message and will be in touch shortly.</p>
+                    </div>
+
+                    <div id="form-error" class="form-message error" style="display: none;">
+                        <h3>Something went wrong.</h3>
+                        <p>Please try again, or email us directly at info@kuipercode.com.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="img/Badge.svg" alt="Kuiper Code Logo">
-                    <span>Kuiper Code, LLC</span>
-                </div>
-                <p>&copy; 2026 Kuiper Code, LLC. All rights reserved.</p>
-            </div>
+        <div class="container footer-inner">
+            <a href="#home" class="footer-logo">
+                <img src="img/Badge.svg" alt="Kuiper Code">
+                <span>Kuiper Code, LLC</span>
+            </a>
+            <nav class="footer-nav" aria-label="Footer">
+                <a href="#engagements">Engagements</a>
+                <a href="#approach">Approach</a>
+                <a href="#capabilities">Capabilities</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <p class="footer-copy">&copy; 2026 Kuiper Code, LLC. All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
