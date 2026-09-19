@@ -13,12 +13,9 @@
     <meta property="og:type" content="website">
 
     <title>Kuiper Code — Technology Leadership for Cloud-Native Teams</title>
-    <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#0a1114">
 
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -27,15 +24,15 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#home" class="logo" aria-label="Kuiper Code home">
-                <img src="img/Badge.svg" alt="Kuiper Code">
+                <img src="img/badge.png" alt="Kuiper Code">
                 <span>Kuiper Code</span>
             </a>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="#engagements">Engagements</a></li>
                 <li><a href="#approach">Approach</a></li>
                 <li><a href="#capabilities">Capabilities</a></li>
@@ -47,44 +44,35 @@
 
     <!-- Hero Section -->
     <header id="home" class="hero">
-        <div class="hero-glow" aria-hidden="true"></div>
         <div class="container hero-inner">
-            <p class="eyebrow">Fractional CTO · Architecture · Cloud-Native Engineering</p>
-            <h1 class="hero-title">
-                Senior technology leadership for
-                <span class="text-gradient">ambitious cloud-native teams</span>
-            </h1>
-            <p class="hero-lead">
-                Kuiper Code partners with high-growth startups and technology companies to
-                raise engineering maturity, design resilient architecture, and ship advanced
-                cloud-native systems &mdash; without the cost of a full-time executive.
-            </p>
+            <div class="hero-intro">
+                <div>
+                    <p class="eyebrow">Fractional CTO · Architecture · Cloud-Native Engineering</p>
+                    <h1 class="hero-title">Senior technology leadership for ambitious cloud-native teams</h1>
+                </div>
+                <p class="hero-lead">
+                    Kuiper Code partners with high-growth startups and technology companies to
+                    raise engineering maturity, design resilient architecture, and ship advanced
+                    cloud-native systems &mdash; without the cost of a full-time executive.
+                </p>
+            </div>
+
+            <div class="stage" id="wave-stage">
+                <pre class="ascii" id="wave-art" role="img" aria-label="Kuiper Code"></pre>
+                <button class="stage-toggle" id="wave-toggle" type="button" aria-pressed="false">Pause wave</button>
+            </div>
+
             <div class="hero-actions">
                 <a href="#contact" class="btn-primary btn-large">Book a consultation</a>
                 <a href="#engagements" class="btn-ghost btn-large">Explore engagements</a>
             </div>
 
-            <div class="trust-bar">
-                <div class="trust-item">
-                    <span class="trust-value">15+ yrs</span>
-                    <span class="trust-label">Building &amp; scaling platforms</span>
-                </div>
-                <div class="trust-divider" aria-hidden="true"></div>
-                <div class="trust-item">
-                    <span class="trust-value">Senior-only</span>
-                    <span class="trust-label">No handoffs, no juniors</span>
-                </div>
-                <div class="trust-divider" aria-hidden="true"></div>
-                <div class="trust-item">
-                    <span class="trust-value">Cloud-native</span>
-                    <span class="trust-label">By default, not by retrofit</span>
-                </div>
-                <div class="trust-divider" aria-hidden="true"></div>
-                <div class="trust-item">
-                    <span class="trust-value">Founder-led</span>
-                    <span class="trust-label">A true engineering partner</span>
-                </div>
-            </div>
+            <ul class="trust-bar">
+                <li class="trust-item"><span class="trust-value">15+ yrs</span><span class="trust-label">Building &amp; scaling platforms</span></li>
+                <li class="trust-item"><span class="trust-value">Senior-only</span><span class="trust-label">No handoffs, no juniors</span></li>
+                <li class="trust-item"><span class="trust-value">Cloud-native</span><span class="trust-label">By default, not by retrofit</span></li>
+                <li class="trust-item"><span class="trust-value">Founder-led</span><span class="trust-label">A true engineering partner</span></li>
+            </ul>
         </div>
     </header>
 
@@ -118,6 +106,8 @@
                         board-level strategy to production-grade systems.
                     </p>
                 </div>
+            </div>
+        </section>
 
                 <div class="engagement-grid">
                     <article class="engagement-card">
@@ -441,7 +431,7 @@
     <footer class="footer">
         <div class="container footer-inner">
             <a href="#home" class="footer-logo">
-                <img src="img/Badge.svg" alt="Kuiper Code">
+                <img src="img/badge.png" alt="Kuiper Code">
                 <span>Kuiper Code, LLC</span>
             </a>
             <nav class="footer-nav" aria-label="Footer">
@@ -455,7 +445,8 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js" integrity="sha384-9LLJQ84WqavR1HCyGiVZ8NWsnBN49uk6kSvqVdy3Rjvwz8VHc/qfQ6sI7e7cN/dK" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
+    <script src="js/wave.js"></script>
 </body>
 </html>

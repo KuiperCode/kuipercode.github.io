@@ -2,8 +2,12 @@
    Kuiper Code — high-end technology leadership practice
    ============================================================ */
 
-// Initialize EmailJS
-emailjs.init("user_lUYOT0ZbunzqDkD3KIehL");
+// Initialize EmailJS (the CDN script may be blocked or fail to load)
+const hasEmailJS = typeof window.emailjs !== 'undefined';
+if (hasEmailJS) emailjs.init("user_lUYOT0ZbunzqDkD3KIehL");
+
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const scrollBehavior = () => (reducedMotion.matches ? 'auto' : 'smooth');
 
 /* ------------------------------------------------------------
    Mobile navigation
@@ -44,7 +48,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const navHeight = navbar ? navbar.offsetHeight : 0;
         const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-        window.scrollTo({ top, behavior: 'smooth' });
+        window.scrollTo({ top, behavior: scrollBehavior() });
     });
 });
 
@@ -80,21 +84,23 @@ const revealTargets = document.querySelectorAll(
     '.section-head, .engagement-card, .step, .stat-card, .tech-category, .about-text, .intro-statement, .intro-inner, .audience, .cta-inner, .contact-intro, .contact-form-wrap'
 );
 
-revealTargets.forEach(el => el.classList.add('reveal'));
+if ('IntersectionObserver' in window) {
+    revealTargets.forEach(el => el.classList.add('reveal'));
 
-const revealObserver = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-            const delay = entry.target.closest('.engagement-grid, .approach-grid, .capability-stack, .about-stats')
-                ? (i % 6) * 70
-                : 0;
-            setTimeout(() => entry.target.classList.add('is-visible'), delay);
-            obs.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                const delay = entry.target.closest('.engagement-grid, .approach-grid, .capability-stack, .about-stats')
+                    ? (i % 6) * 70
+                    : 0;
+                setTimeout(() => entry.target.classList.add('is-visible'), delay);
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-revealTargets.forEach(el => revealObserver.observe(el));
+    revealTargets.forEach(el => revealObserver.observe(el));
+}
 
 /* ------------------------------------------------------------
    Contact form (EmailJS)
@@ -107,6 +113,12 @@ if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
+        if (!hasEmailJS) {
+            formError.style.display = 'block';
+            formError.scrollIntoView({ behavior: scrollBehavior(), block: 'center' });
+            return;
+        }
+
         const submitButton = contactForm.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
         submitButton.disabled = true;
@@ -118,7 +130,7 @@ if (contactForm) {
                 contactForm.style.display = 'none';
                 formError.style.display = 'none';
                 formSuccess.style.display = 'block';
-                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                formSuccess.scrollIntoView({ behavior: scrollBehavior(), block: 'center' });
 
                 submitButton.disabled = false;
                 submitButton.textContent = originalText;
@@ -132,7 +144,7 @@ if (contactForm) {
                 console.error('EmailJS error:', error);
                 formError.style.display = 'block';
                 formSuccess.style.display = 'none';
-                formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                formError.scrollIntoView({ behavior: scrollBehavior(), block: 'center' });
 
                 submitButton.disabled = false;
                 submitButton.textContent = originalText;
