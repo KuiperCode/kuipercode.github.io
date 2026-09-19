@@ -177,10 +177,12 @@
 
     document.addEventListener('visibilitychange', sync);
 
-    new IntersectionObserver(entries => {
-        onScreen = entries[0].isIntersecting;
-        sync();
-    }).observe(stage);
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(entries => {
+            onScreen = entries[0].isIntersecting;
+            sync();
+        }).observe(stage);
+    }
 
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
