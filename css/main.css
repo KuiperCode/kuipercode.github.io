@@ -185,7 +185,11 @@ p { color: var(--text-secondary); }
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid transparent;
-    transition: border-color 0.3s ease, background 0.3s ease;
+    transition: transform 0.35s ease, visibility 0.35s, border-color 0.3s ease, background 0.3s ease;
+}
+.navbar.is-hidden {
+    transform: translateY(-100%);
+    visibility: hidden;
 }
 .navbar.scrolled {
     border-bottom-color: var(--line-soft);
@@ -261,13 +265,70 @@ p { color: var(--text-secondary); }
 .mobile-menu-toggle.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 /* ------------------------------------------------------------
-   Hero — ASCII wave stage
+   Landing — full-screen ASCII wave
+   ------------------------------------------------------------ */
+.landing {
+    position: relative;
+    height: 100vh;
+    height: 100svh;
+    min-height: 420px;
+    overflow: hidden;
+}
+
+.stage {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 0 var(--gutter);
+    background:
+        radial-gradient(ellipse at 50% 50%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 60%),
+        var(--paper);
+    overflow: hidden;
+    isolation: isolate;
+}
+.stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#9cafaa20 1px, transparent 1px);
+    background-size: 16px 16px;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse at 50% 50%, #000 30%, transparent 75%);
+    z-index: -1;
+}
+
+.scroll-cue {
+    position: absolute;
+    left: 50%;
+    bottom: 28px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    color: var(--text-muted);
+    font: 9px/1.2 var(--font-mono);
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+.scroll-cue::after {
+    content: "";
+    width: 1px;
+    height: 28px;
+    background: linear-gradient(var(--accent), transparent);
+    animation: cue 2.2s ease-in-out infinite;
+    transform-origin: top;
+}
+.scroll-cue:hover { color: var(--text-strong); }
+
+/* ------------------------------------------------------------
+   Hero — intro below the landing
    ------------------------------------------------------------ */
 .hero {
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
-    padding: 7.5rem 0 3.5rem;
+    padding: var(--section-pad) 0 5rem;
 }
 
 .hero-inner {
@@ -280,7 +341,6 @@ p { color: var(--text-secondary); }
     align-items: end;
     justify-content: space-between;
     gap: 35px;
-    animation: fadeUp 0.8s ease both;
 }
 .hero-intro .eyebrow { margin-bottom: 0.5rem; }
 
@@ -295,32 +355,6 @@ p { color: var(--text-secondary); }
     font-size: 0.875rem;
     line-height: 1.7;
     color: var(--text-secondary);
-}
-
-.stage {
-    position: relative;
-    display: grid;
-    place-items: center;
-    min-height: 300px;
-    padding: 56px 24px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    background:
-        radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 55%),
-        var(--stage);
-    overflow: hidden;
-    isolation: isolate;
-    animation: fadeUp 0.8s ease 0.08s both;
-}
-.stage::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(#9cafaa20 1px, transparent 1px);
-    background-size: 16px 16px;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
-    z-index: -1;
 }
 
 .ascii {
@@ -346,8 +380,8 @@ p { color: var(--text-secondary); }
 
 .stage-toggle {
     position: absolute;
-    right: 14px;
-    bottom: 12px;
+    right: var(--gutter);
+    bottom: 28px;
     padding: 6px 10px;
     background: none;
     border: 1px solid transparent;
@@ -366,7 +400,6 @@ p { color: var(--text-secondary); }
     gap: 0.75rem;
     justify-content: center;
     flex-wrap: wrap;
-    animation: fadeUp 0.8s ease 0.16s both;
 }
 
 .trust-bar {
@@ -379,7 +412,6 @@ p { color: var(--text-secondary); }
     font: 10px/1.5 var(--font-mono);
     letter-spacing: 0.8px;
     text-transform: uppercase;
-    animation: fadeUp 0.8s ease 0.22s both;
 }
 .trust-item::before {
     content: "";
@@ -766,6 +798,10 @@ p { color: var(--text-secondary); }
 /* ------------------------------------------------------------
    Animations
    ------------------------------------------------------------ */
+@keyframes cue {
+    0%, 100% { transform: scaleY(0.35); opacity: 0.5; }
+    50% { transform: scaleY(1); opacity: 1; }
+}
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(18px); }
     to { opacity: 1; transform: translateY(0); }
@@ -828,8 +864,7 @@ p { color: var(--text-secondary); }
 }
 
 @media (max-width: 600px) {
-    .hero { min-height: 0; padding-top: 6.5rem; }
-    .stage { min-height: 220px; padding: 40px 12px 44px; }
+    .stage-toggle { top: 20px; bottom: auto; }
     .hero-actions { flex-direction: column; }
     .hero-actions .btn-large { width: 100%; }
     .trust-bar { justify-content: flex-start; flex-direction: column; }

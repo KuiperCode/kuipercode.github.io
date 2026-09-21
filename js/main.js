@@ -36,6 +36,7 @@ if (mobileMenuToggle && navMenu) {
    Smooth scrolling for in-page anchors
    ------------------------------------------------------------ */
 const navbar = document.querySelector('.navbar');
+const landing = document.querySelector('.landing');
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -60,7 +61,12 @@ const sections = document.querySelectorAll('section[id], header[id]');
 function onScroll() {
     const y = window.pageYOffset;
 
-    if (navbar) navbar.classList.toggle('scrolled', y > 24);
+    if (navbar) {
+        // Keep the nav out of the way until the full-screen landing is scrolled past.
+        const pastLanding = !landing || y > landing.offsetHeight - navbar.offsetHeight;
+        navbar.classList.toggle('is-hidden', !pastLanding);
+        navbar.classList.toggle('scrolled', pastLanding);
+    }
 
     sections.forEach(section => {
         const top = section.offsetTop - 120;
@@ -81,7 +87,7 @@ onScroll();
    Scroll-reveal animations
    ------------------------------------------------------------ */
 const revealTargets = document.querySelectorAll(
-    '.section-head, .engagement-card, .step, .stat-card, .tech-category, .about-text, .intro-statement, .intro-inner, .audience, .cta-inner, .contact-intro, .contact-form-wrap'
+    '.hero-intro, .hero-actions, .trust-bar, .section-head, .engagement-card, .step, .stat-card, .tech-category, .about-text, .intro-statement, .intro-inner, .audience, .cta-inner, .contact-intro, .contact-form-wrap'
 );
 
 if ('IntersectionObserver' in window) {

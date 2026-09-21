@@ -21,7 +21,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar is-hidden">
         <div class="nav-container">
             <a href="#home" class="logo" aria-label="Kuiper Code home">
                 <img src="img/badge.png" alt="Kuiper Code">
@@ -42,8 +42,17 @@
         </div>
     </nav>
 
+    <!-- Landing — full-screen ASCII wave -->
+    <section id="home" class="landing" aria-label="Kuiper Code">
+        <div class="stage" id="wave-stage">
+            <pre class="ascii" id="wave-art" role="img" aria-label="Kuiper Code"></pre>
+        </div>
+        <button class="stage-toggle" id="wave-toggle" type="button" aria-pressed="false">Pause wave</button>
+        <a href="#welcome" class="scroll-cue">Scroll</a>
+    </section>
+
     <!-- Hero Section -->
-    <header id="home" class="hero">
+    <header id="welcome" class="hero">
         <div class="container hero-inner">
             <div class="hero-intro">
                 <div>
@@ -55,11 +64,6 @@
                     raise engineering maturity, design resilient architecture, and ship advanced
                     cloud-native systems &mdash; without the cost of a full-time executive.
                 </p>
-            </div>
-
-            <div class="stage" id="wave-stage">
-                <pre class="ascii" id="wave-art" role="img" aria-label="Kuiper Code"></pre>
-                <button class="stage-toggle" id="wave-toggle" type="button" aria-pressed="false">Pause wave</button>
             </div>
 
             <div class="hero-actions">
