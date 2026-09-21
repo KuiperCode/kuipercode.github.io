@@ -57,17 +57,21 @@
     const SPEED = 1;
     const CHAR_RATIO = 0.61;      // monospace glyph width / font-size
     const MIN_WIDE_SIZE = 8.5;    // below this, switch to stacked art
+    const MAX_SIZE = 40;
+    const HEIGHT_SHARE = 0.55;    // art may use this much of the stage height
 
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     let cells = [];
     let layout = '';
     let columns = 0;
+    let rows = 0;
     let raf = 0;
     let lastTime = 0;
     let clock = 0;
     let userPaused = reduced.matches;
     let onScreen = true;
     let resizeTimer = 0;
+    let scale = 1;                // wave displacement grows with the glyph size
 
     function available() {
         const style = getComputedStyle(stage);
@@ -76,7 +80,7 @@
 
     function build(lines) {
         columns = Math.max(...lines.map(line => line.length));
-        const rows = lines.length;
+        rows = lines.length;
         const cx = (columns - 1) / 2;
         const cy = rows + 4;
         const fragment = document.createDocumentFragment();
@@ -111,7 +115,12 @@
             layout = next;
             build(ART[layout]);
         }
-        const size = Math.max(5, Math.min(22, width / columns / CHAR_RATIO));
+        const size = Math.max(5, Math.min(
+            MAX_SIZE,
+            width / columns / CHAR_RATIO,
+            (stage.clientHeight * HEIGHT_SHARE) / rows,
+        ));
+        scale = size / 15;
         pre.style.fontSize = `${size}px`;
         paint();
     }
@@ -123,7 +132,7 @@
             const echo = Math.pow(0.5 + 0.5 * Math.cos(phase * 0.5 + 1.15), 9) * 0.18;
             const shine = Math.min(1, crest * 0.92 + echo);
             const displacement =
-                (Math.sin(phase) * 0.72 + Math.sin(phase * 0.5 + 0.8) * 0.2) * (shine * 0.7 + 0.25);
+                (Math.sin(phase) * 0.72 + Math.sin(phase * 0.5 + 0.8) * 0.2) * (shine * 0.7 + 0.25) * scale;
             const dim = 0.3 + shine * 0.7;
             const mix = shine * 0.64;
             const color = BASE.map(channel => Math.round(channel * dim * (1 - mix) + 255 * mix));
