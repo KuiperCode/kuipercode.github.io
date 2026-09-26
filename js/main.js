@@ -223,8 +223,12 @@ if (orbitSystem) {
         p.el.addEventListener('mouseleave', () => { paused = false; setActive(null); });
     });
     legendItems.forEach(item => {
-        item.addEventListener('mouseenter', () => setActive(Number(item.dataset.orbit)));
-        item.addEventListener('mouseleave', () => setActive(null));
+        const activate = () => setActive(Number(item.dataset.orbit));
+        const clear = () => setActive(null);
+        item.addEventListener('mouseenter', activate);
+        item.addEventListener('mouseleave', clear);
+        item.addEventListener('focus', activate);
+        item.addEventListener('blur', clear);
     });
 
     layout();

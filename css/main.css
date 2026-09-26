@@ -682,7 +682,7 @@ p { color: var(--text-secondary); }
     width: var(--planet-size);
     height: var(--planet-size);
     margin: calc(var(--planet-size) / -2) 0 0 calc(var(--planet-size) / -2);
-    will-change: transform;
+    will-change: transform, filter;
     perspective: 400px;
 }
 .planet-body {
@@ -761,6 +761,10 @@ p { color: var(--text-secondary); }
     transition: background 0.25s ease;
 }
 .tech-category.is-active { background: var(--panel-hover); }
+.tech-category:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+}
 .orbit-index {
     color: var(--accent);
     margin-right: 0.6rem;
